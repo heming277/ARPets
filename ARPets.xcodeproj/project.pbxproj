@@ -14,6 +14,12 @@
 		F98A2F2A2B1E9D89005459DC /* ARPetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98A2F292B1E9D89005459DC /* ARPetsTests.swift */; };
 		F98A2F342B1E9D89005459DC /* ARPetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98A2F332B1E9D89005459DC /* ARPetsUITests.swift */; };
 		F98A2F362B1E9D89005459DC /* ARPetsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98A2F352B1E9D89005459DC /* ARPetsUITestsLaunchTests.swift */; };
+		F98A2F432B1EBEBD005459DC /* JCUBE_Maneki.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F98A2F422B1EBEBD005459DC /* JCUBE_Maneki.usdz */; };
+		F98A2F452B1EBEDC005459DC /* maneki_anim.usd in Resources */ = {isa = PBXBuildFile; fileRef = F98A2F442B1EBEDC005459DC /* maneki_anim.usd */; };
+		F98A2F472B1EBEEE005459DC /* robot_walk_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F98A2F462B1EBEEE005459DC /* robot_walk_idle.usdz */; };
+		F98A2F492B1EBFF9005459DC /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F98A2F482B1EBFF9005459DC /* toy_drummer_idle.usdz */; };
+		F98A2F4B2B1EC00B005459DC /* toy_car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F98A2F4A2B1EC00B005459DC /* toy_car.usdz */; };
+		F98A2F4D2B1EC01B005459DC /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F98A2F4C2B1EC01B005459DC /* toy_biplane_idle.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,13 @@
 		F98A2F2F2B1E9D89005459DC /* ARPetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARPetsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98A2F332B1E9D89005459DC /* ARPetsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPetsUITests.swift; sourceTree = "<group>"; };
 		F98A2F352B1E9D89005459DC /* ARPetsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPetsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F98A2F422B1EBEBD005459DC /* JCUBE_Maneki.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = JCUBE_Maneki.usdz; sourceTree = "<group>"; };
+		F98A2F442B1EBEDC005459DC /* maneki_anim.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = maneki_anim.usd; sourceTree = "<group>"; };
+		F98A2F462B1EBEEE005459DC /* robot_walk_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot_walk_idle.usdz; sourceTree = "<group>"; };
+		F98A2F482B1EBFF9005459DC /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
+		F98A2F4A2B1EC00B005459DC /* toy_car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_car.usdz; sourceTree = "<group>"; };
+		F98A2F4C2B1EC01B005459DC /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
+		F98A2F4E2B1ECAE1005459DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +107,7 @@
 		F98A2F172B1E9D88005459DC /* ARPets */ = {
 			isa = PBXGroup;
 			children = (
+				F98A2F4E2B1ECAE1005459DC /* Info.plist */,
 				F98A2F182B1E9D88005459DC /* AppDelegate.swift */,
 				F98A2F1A2B1E9D88005459DC /* ContentView.swift */,
 				F98A2F1C2B1E9D89005459DC /* Assets.xcassets */,
@@ -106,6 +120,12 @@
 			isa = PBXGroup;
 			children = (
 				F98A2F1F2B1E9D89005459DC /* Preview Assets.xcassets */,
+				F98A2F482B1EBFF9005459DC /* toy_drummer_idle.usdz */,
+				F98A2F462B1EBEEE005459DC /* robot_walk_idle.usdz */,
+				F98A2F422B1EBEBD005459DC /* JCUBE_Maneki.usdz */,
+				F98A2F4C2B1EC01B005459DC /* toy_biplane_idle.usdz */,
+				F98A2F442B1EBEDC005459DC /* maneki_anim.usd */,
+				F98A2F4A2B1EC00B005459DC /* toy_car.usdz */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -232,7 +252,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98A2F202B1E9D89005459DC /* Preview Assets.xcassets in Resources */,
+				F98A2F472B1EBEEE005459DC /* robot_walk_idle.usdz in Resources */,
+				F98A2F4B2B1EC00B005459DC /* toy_car.usdz in Resources */,
+				F98A2F432B1EBEBD005459DC /* JCUBE_Maneki.usdz in Resources */,
+				F98A2F4D2B1EC01B005459DC /* toy_biplane_idle.usdz in Resources */,
+				F98A2F452B1EBEDC005459DC /* maneki_anim.usd in Resources */,
 				F98A2F1D2B1E9D89005459DC /* Assets.xcassets in Resources */,
+				F98A2F492B1EBFF9005459DC /* toy_drummer_idle.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,9 +448,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ARPets/Preview Content\"";
+				DEVELOPMENT_TEAM = SBP2RX28CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ARPets/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -452,9 +482,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ARPets/Preview Content\"";
+				DEVELOPMENT_TEAM = SBP2RX28CX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ARPets/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
