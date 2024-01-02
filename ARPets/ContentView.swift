@@ -46,26 +46,15 @@ struct ARViewContainer: UIViewRepresentable {
     @Binding var takeSnapshot: Bool
     
     func makeUIView(context: Context) -> ARView {
-        
         let arView = ARView(frame: .zero)
         // Set the session delegate
         arView.session.delegate = context.coordinator
-
-        // Attempt to load the JCUBE_maneki.usdz file
-        let filename = "JCUBE_Maneki"
-        if let modelEntity = try? ModelEntity.load(named: filename) {
-            // Create an anchor with a horizontal plane
-            let anchor = AnchorEntity(.camera)
-            
-            let position = SIMD3<Float>(x: 0.0, y: 0.0, z: -0.5) // 1 meter in front of the camera
-            modelEntity.position = position
-            // Add modelEntity to the anchor
-            anchor.addChild(modelEntity)
-            // Add the anchor to the scene
-            arView.scene.anchors.append(anchor)
-        } else {
-            print("Error: Unable to load model entity")
-        }
+        
+        // Enable horizontal plane detection
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal]
+        arView.session.run(configuration, options: [])
+        
         context.coordinator.arView = arView
         return arView
     }
@@ -79,35 +68,32 @@ struct ARViewContainer: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
-    class Coordinator: NSObject,ARSessionDelegate{
+    
+    class Coordinator: NSObject, ARSessionDelegate {
         var parent: ARViewContainer
-        var petAnchor: AnchorEntity?
         var arView: ARView?
-        
+        var isPetAdded = false
+
         init(_ parent: ARViewContainer) {
             self.parent = parent
         }
-        
-        func session(_ session: ARSession, didUpdate frame: ARFrame) {
-            guard let cameraTransform = session.currentFrame?.camera.transform else { return }
             
-            if petAnchor == nil {
-                // Create the anchor and model entity only once
-                petAnchor = AnchorEntity(world: cameraTransform)
-                let filename = "JCUBE_Maneki"
-                if let modelEntity = try? ModelEntity.load(named: filename) {
-                    petAnchor?.addChild(modelEntity)
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+            guard let arView = arView, !isPetAdded else { return } // Check if the pet has already been added
+            
+            for anchor in anchors {
+                if let planeAnchor = anchor as? ARPlaneAnchor, planeAnchor.alignment == .horizontal {
+                    // Add the AR pet to the detected horizontal plane
+                    let filename = "JCUBE_Maneki"
+                    if let modelEntity = try? ModelEntity.load(named: filename) {
+                        let anchorEntity = AnchorEntity(anchor: planeAnchor)
+                        anchorEntity.addChild(modelEntity)
+                        arView.scene.addAnchor(anchorEntity)
+                        
+                        isPetAdded = true // Set the flag to true after adding the pet
+                        break // Break the loop
+                    }
                 }
-                if let arView = session.delegate as? ARView {
-                    arView.scene.addAnchor(petAnchor!)
-                }
-            } else {
-                // Update the pet anchor's position relative to the camera continuously
-                let cameraPosition = SIMD3<Float>(cameraTransform.columns.3.x, cameraTransform.columns.3.y, cameraTransform.columns.3.z)
-                let petPositionOffset = SIMD3<Float>(0, 0, -1) // 1 meter in front of the camera
-                let newPetPosition = cameraPosition + petPositionOffset
-                // Use a smooth transition to update the pet's position
-                petAnchor?.move(to: Transform(scale: .one, rotation: petAnchor!.orientation, translation: newPetPosition), relativeTo: nil, duration: 0.1, timingFunction: .linear)
             }
         }
         
